@@ -16,11 +16,12 @@ class tablero {
     int _fil,_col;
     vector<string> _valores;
     vector<int> _pos;
+    vector<string> _letra;
 public:
-    tablero(int&, int&, int&, vector<string>&);
-
+    tablero(int, int, int, vector<string>);
+    void ordenar();
     void verificar();
-
+    ~tablero();
 };
 
 
