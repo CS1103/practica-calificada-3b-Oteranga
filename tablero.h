@@ -15,12 +15,14 @@ class tablero {
     int _barcos;
     int _fil,_col;
     vector<string> _valores;
-    vector<int> _pos;
+    vector<vector<int>> _pos;
     vector<string> _letra;
 public:
     tablero(int, int, int, vector<string>);
-    void ordenar();
+    vector<vector<int>> organizar();
     void verificar();
+    void ordenar();
+    void generar();
     ~tablero();
 };
 

@@ -4,6 +4,7 @@
 #include <vector>
 #include <sstream>
 #include "tablero.h"
+#include "crear.cpp"
 
 using namespace std;
 
@@ -30,13 +31,16 @@ int main() {
         }
     }
     file.close();
-
-    for (unsigned long i = 0; i < data.size(); i++){
-        cout << data[i] << endl;
+    vector<string>::iterator i;
+    for (i = data.begin(); i !=data.end(); i++){
+        cout << *i << endl;
     }
     file.close();
 
     tablero A(stoi(num),stoi(filas),stoi(col),data);
-
+    auto v=A.organizar();
+    A.verificar();
+    A.ordenar();
+    escribir(v);
     return 0;
 }
