@@ -3,18 +3,15 @@
 #include <string>
 #include <vector>
 #include <sstream>
-#include "ordenamiento.cpp"
+#include "tablero.h"
 
 using namespace std;
 
 int main() {
-    fstream file;
-    file.open("rectangulos.in",ios::in);
+    ifstream file;
     string num,filas,col;
-    string accion, posiciones,posx,posy,num_f,num_c;
-    int j=0,numero=0;
-    vector<string>ac;
-    vector<vector<int>> elementos;
+    file.open("rectangulos.in");
+
     for (int i=0; i<1; i++){
         getline(file,num,' ');
         //cout<<num<<endl;
@@ -23,31 +20,23 @@ int main() {
         getline(file,col,'\n');
         //cout<<col<<endl;
     }
+    vector<string> data;
 
-    for(int x=0;x<stoi(num);x++){
-        getline(file,accion,' ');
-        //cout<<accion<<endl;
-        ac.push_back(accion);
-        getline(file, posiciones, '\n');
-            //getline(file, posy, ' ');
-            //getline(file, num_f, ' ');
-            //getline(file, num_c,'\n');
-            //cout<<posx<<endl;
-            //cout<<posy<<endl;
-            //cout<<num_f<<endl;
-            //cout<<num_c<<endl;
-            stringstream v(posiciones);
-        while(v>>numero){
-        elementos[j].push_back(numero);
-        cout<<numero<<endl;
-        }
-        j++;
-    }
-
-    for(int it=0;it<stoi(num);it++){
-        for(int i=0; i<4; i++){
-            //cout<<elementos[it][i]<<endl;
+    while(!file.eof()){
+        string line;
+        getline(file, line,'\n');
+        if(line.size() > 0){
+            data.push_back(line);
         }
     }
+    file.close();
+
+    for (unsigned long i = 0; i < data.size(); i++){
+        cout << data[i] << endl;
+    }
+    file.close();
+
+    tablero A(stoi(num),stoi(filas),stoi(col),data);
+
     return 0;
 }

@@ -5,15 +5,19 @@
 #ifndef PC3B_TABLERO_H
 #define PC3B_TABLERO_H
 
-#include "ordenamiento.cpp"
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
 
 class tablero {
-    //datos n, m;
-    //int matriz[n][m];
+    int _barcos;
+    int _fil,_col;
+    vector<string> _valores;
+    vector<int> _pos;
 public:
-    tablero();
-
-    void crear();
+    tablero(int&, int&, int&, vector<string>&);
 
     void verificar();
 
